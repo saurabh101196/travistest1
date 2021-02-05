@@ -13,8 +13,8 @@ install:
   - "pip install -e src"
 
 script:
-  - "pytest -v --cov=contacts"
+  - "coverage run --source=src -m unittest discover tests -v"
 
 after_success:
   - coveralls
-  
+  - "python -m unittest discover benchmarks -v"
