@@ -1,21 +1,16 @@
 language: python
-
 os: linux
 dist: xenial
-
 python:
-  - 3.7
-  - &mainstream_python 3.8
-  - nightly
+- 3.7
+- &mainstream_python 3.8
+- nightly
 
 install:
-  - "pip install coveralls"
-  - "pip install -e src"
+- "pip install -e src"
 
 script:
-  - "coverage run --source=src -m unittest discover tests -v"
-  - "python -m unittest discover tests -v"
+- "python -m unittest discover tests -v"
 
 after_success:
-  - coveralls
-  - "python -m unittest discover benchmarks -v"
+- "python -m unittest discover benchmarks -v"
